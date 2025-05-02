@@ -25,7 +25,7 @@ const CategoryNews = () => {
             const filteredNews = data.filter(news=>news.category_id == id)
            
             setCategoryNews(filteredNews)
-            console.log(filteredNews)
+            // console.log(filteredNews)
         }
 
        
