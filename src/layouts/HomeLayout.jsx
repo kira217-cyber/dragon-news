@@ -29,7 +29,7 @@ const HomeLayout = () => {
                     {state=="loading" ?<Loading
                     ></Loading>:<Outlet></Outlet>}
                 </section>
-                <aside className='col-span-3 sticky top-0 h-fit'>
+                <aside className='col-span-3'>
                     <RightAside></RightAside>
                 </aside>
             </main>

@@ -1,4 +1,4 @@
-import { fi } from 'date-fns/locale';
+
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import NewsCard from '../components/NewsCard/NewsCard';

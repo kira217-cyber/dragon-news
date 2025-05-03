@@ -1,12 +1,13 @@
-import React, { use, useState } from "react";
+import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
 
     const [error,setError] = useState("")
+    const emailRef = useRef()
 
-    const {logIn} = use(AuthContext)
+    const {logIn,forgetPassword} = use(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -25,6 +26,16 @@ const Login = () => {
         })
     }
 
+    const handleForgetPassword = () =>{
+
+      const email = emailRef.current.value;
+      forgetPassword(email).then(result=>{
+        alert("Please check your Email")
+      }).catch(error=>{
+        setError(error.message)
+      })
+
+    }
 
   return (
     <div className="flex justify-center min-h-screen items-center">
@@ -33,11 +44,11 @@ const Login = () => {
         <div className="card-body">
           <form onSubmit={handleLogin} className="fieldset">
             <label className="label">Email</label>
-            <input required name="email" type="email" className="input" placeholder="Email" />
+            <input ref={emailRef} required name="email" type="email" className="input" placeholder="Email" />
             <label className="label">Password</label>
             <input required name="password" type="password" className="input" placeholder="Password" />
             <div>
-              <a className="link link-hover">Forgot password?</a>
+              <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
             </div>
             {
               error && <p className="text-red-500 text-sm">{error}</p>
