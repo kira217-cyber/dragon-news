@@ -37,10 +37,12 @@ const AuthProvider = ({children}) => {
     }
 
     const googleLogin = (auth,provider)=>{
+        setLoading(true)
         return signInWithPopup(auth,provider)
     }
 
     const githubLogin = (auth,provider)=>{
+        setLoading(true)
         return signInWithPopup(auth,provider)
     }
 

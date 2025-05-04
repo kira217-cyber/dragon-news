@@ -13,7 +13,7 @@ const PrivetRoute = ({children}) => {
     }
 
     // if user thakle return children 
-    if(user && user?.email){
+    if(user && user?.email || user?.displayName){
         return children
     }
     return <Navigate state={location.pathname} to="/auth/login"></Navigate>
